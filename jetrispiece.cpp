@@ -4,10 +4,10 @@
 
 void JetrisPiece::setRandomShape()
 {
-    setShape(JetrisShape(QRandomGenerator::global()->bounded(7) + 1));
+    setShape(Termino(QRandomGenerator::global()->bounded(7) + 1));
 }
 
-void JetrisPiece::setShape(JetrisShape shape)
+void JetrisPiece::setShape(Termino shape)
 {
     static const int coordsTable[8][4][2] = {
         { { 0, 0 },   { 0, 0 },   { 0, 0 },   { 0, 0 } },
@@ -61,7 +61,7 @@ int JetrisPiece::maxY() const
 
 JetrisPiece JetrisPiece::rotatedLeft() const
 {
-    if (pieceShape == SquareShape)
+    if (pieceShape == OShape)
         return *this;
 
     JetrisPiece result;
@@ -75,7 +75,7 @@ JetrisPiece JetrisPiece::rotatedLeft() const
 
 JetrisPiece JetrisPiece::rotatedRight() const
 {
-    if (pieceShape == SquareShape)
+    if (pieceShape == OShape)
         return *this;
 
     JetrisPiece result;

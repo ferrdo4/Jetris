@@ -88,7 +88,7 @@ void JetrisBoard::paintEvent(QPaintEvent *event)
     {
         for (int j = 0; j < BoardWidth; ++j)
         {
-            JetrisShape shape = shapeAt(j, BoardHeight - i - 1);
+            Termino shape = shapeAt(j, BoardHeight - i - 1);
             if (shape != NoShape)
                 drawSquare(painter, rect.left() + j * squareWidth(),
                            boardTop + i * squareHeight(), shape);
@@ -314,11 +314,11 @@ bool JetrisBoard::tryMove(const JetrisPiece &newPiece, int newX, int newY)
     return true;
 }
 
-void JetrisBoard::drawSquare(QPainter &painter, int x, int y, JetrisShape shape)
+void JetrisBoard::drawSquare(QPainter &painter, int x, int y, Termino shape)
 {
     static const QRgb colorTable[8] = {
-        0x000000, 0xCC6666, 0x66CC66, 0x6666CC,
-        0xCCCC66, 0xCC66CC, 0x66CCCC, 0xDAAA00
+        0x000000, 0xff0000, 0x00ff00, 0x00ffff,
+        0xff00ff, 0xffff00, 0xffa500, 0x0000ff
     };
 
     QColor color = colorTable[int(shape)];

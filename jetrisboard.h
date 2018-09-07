@@ -36,7 +36,7 @@ protected:
 private:
     enum { BoardWidth = 10, BoardHeight = 22 };
 
-    JetrisShape &shapeAt(int x, int y) { return board[(y * BoardWidth) + x]; }
+    Termino &shapeAt(int x, int y) { return board[(y * BoardWidth) + x]; }
     int timeoutTime() { return 1000 / (1 + level); }
     int squareWidth() { return contentsRect().width() / BoardWidth; }
     int squareHeight() { return contentsRect().height() / BoardHeight; }
@@ -48,7 +48,7 @@ private:
     void newPiece();
     void showNextPiece();
     bool tryMove(const JetrisPiece &newPiece, int newX, int newY);
-    void drawSquare(QPainter &painter, int x, int y, JetrisShape shape);
+    void drawSquare(QPainter &painter, int x, int y, Termino shape);
 
     QBasicTimer timer;
     QPointer<QLabel> nextPieceLabel;
@@ -63,6 +63,6 @@ private:
     int numPiecesDropped;
     int score;
     int level;
-    JetrisShape board[BoardWidth * BoardHeight];
+    Termino board[BoardWidth * BoardHeight];
 };
 
